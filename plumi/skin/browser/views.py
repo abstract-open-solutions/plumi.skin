@@ -107,11 +107,15 @@ class PublishView(BrowserView):
         self.context = context 
         self.request = request 
         self.traverse_subpath = []
-    
+
     def __call__(self, request=None, response=None):
         portal_state = getMultiAdapter((self.context, self.request), 
                                        name="plone_portal_state")
-        home = portal_state.member().getHomeFolder()
+        member = portal_state.member()
+        home = member.getHomeFolder()
+        if not home:
+            raise LookupError(u"Can't find home folder for user '%s'."
+                              u" Is this a Zope user?" % member.getId())
         if 'news' in self.traverse_subpath:
             target = home.absolute_url()+'/news/createObject?type_name=News%20Item'
         elif 'event' in self.traverse_subpath:
