@@ -9,19 +9,17 @@
                      home_url portal/portal_membership/getHomeUrl|nothing;">
 
         <dd class="portletItem publish-portlet">
-            <dl>
-                <dt>
-                    <li>
-                        <a tal:attributes="href string:${portal/absolute_url}/publish/video" i18n:translate="">Video</a>
-                    </li>
-                    <li>
-                        <a tal:attributes="href string:${portal/absolute_url}/publish/event" i18n:translate="">Event</a>
-                    </li>
-                    <li>
-                        <a tal:attributes="href string:${portal/absolute_url}/publish/news" i18n:translate="">News</a>
-                    </li>
-                </dt>
-            </dl>
+            <ul>
+                <li>
+                    <a tal:attributes="href string:${portal/absolute_url}/publish/video" i18n:translate="">Video</a>
+                </li>
+                <li>
+                    <a tal:attributes="href string:${portal/absolute_url}/publish/event" i18n:translate="">Event</a>
+                </li>
+                <li>
+                    <a tal:attributes="href string:${portal/absolute_url}/publish/news" i18n:translate="">News</a>
+                </li>
+            </ul>
         </dd>
     </div>
 </dl>

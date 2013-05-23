@@ -7,7 +7,7 @@
 
     <dd class="content-portlet">
         <dl>
-            <dt>
+            <ul>
                 <li class="portletItem">
                     <a tal:attributes="href python: context.portal_url() + '/latestvideos'" i18n:translate="">Videos</a>
                 </li>
@@ -20,7 +20,7 @@
                 <li class="portletItem">
                     <a tal:attributes="href python: context.portal_url() + '/recent_comments'" i18n:translate="">Comments</a>
                 </li>
-            </dt>
+            </ul>
         </dl>
     </dd>
 

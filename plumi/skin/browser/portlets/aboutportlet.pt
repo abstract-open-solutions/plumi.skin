@@ -7,7 +7,7 @@
 
     <dd class="about-portlet">
         <dl>
-            <dt>
+            <ul>
                 <li class="portletItem">
                     <a href="http://blog.plumi.org/" i18n:translate="">Plumi Blog</a>
                 </li>
@@ -20,7 +20,7 @@
                 <li class="portletItem">
                     <a href="https://unweb.me/" i18n:translate="">Unweb.me</a>
                 </li>
-            </dt>
+            </ul>
         </dl>
     </dd>
 </dl>
