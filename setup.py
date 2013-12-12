@@ -50,5 +50,4 @@ setup(name='plumi.skin',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=['PasteScript']
       )
