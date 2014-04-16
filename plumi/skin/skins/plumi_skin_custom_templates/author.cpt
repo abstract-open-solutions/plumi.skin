@@ -36,7 +36,7 @@
                   if (subject && message &&message_check && subject_check ){
                   jQuery('#kss-spinner').show();
                   jQuery.post(url,{'subject':subject,'message':message,'author':author,'referer':referer},function(data){
-                      jQuery('#kss-spinner').hide();       
+                      jQuery('#kss-spinner').hide();
                       status_bar = document.getElementById('feedback_form_status');
                       jQuery(status_bar).html(data);
                       jQuery(status_bar).addClass('portalMessage info');
@@ -50,7 +50,7 @@
                   }
                   return false;
                 }
-              }); 
+              });
           });
       </script>
 </metal:javascript_head>
@@ -88,15 +88,15 @@
 
 
         <tal:haveAuthor condition="authorinfo">
- 
+
     <div id="region-content" class="documentEditable"
          tal:define="isOwner python:member.getId()==author"
          tal:attributes="class python: test(isOwner, 'documentEditable', '')">
 
         <h5 class="hiddenStructure"
             tal:condition="isOwner">Views</h5>
-        
-        <ul id="content-views" 
+
+        <ul id="content-views"
             tal:condition="isOwner"
             class="contentViews">
           <li class="selected">
@@ -122,7 +122,7 @@
         <div class="documentContent" id="region-content">
 
             <a name="documentContent"></a>
-                    
+
             <div metal:use-macro="here/global_statusmessage/macros/portal_message">
                 Portal status message
             </div>
@@ -164,22 +164,22 @@
                 <tal:language condition="authorinfo/language">
                 &mdash;
                 <span i18n:translate="label_main_language">Main Language:</span>
-                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=language&invalue=${authorinfo/language}">                
+                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=language&invalue=${authorinfo/language}">
                      <span tal:replace="authorinfo/language/title">Some language</span>
                   </a>
                 </tal:language>
             </div>
 
-                      
+
 
             <p class="documentDescription" tal:content="authorinfo/description|nothing">
                 Author description.
             </p>
 
             <div class="visualClear"><!-- --></div>
-            
+
             <p class="homepage" tal:condition="python: authorinfo['home_page']">
-            <a href="#" 
+            <a href="#"
                rel="nofollow"
                tal:attributes="href authorinfo/home_page"
                i18n:translate="label_author_external_home_page"><span tal:replace="authorinfo/home_page"></span></a>
@@ -195,25 +195,25 @@
                     Some City
                 </span>,
             </tal:location>
-            <tal:location condition="authorinfo/location" i18n:translate="text_location">
-                     <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
-                        <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
-                            Some Country
-                        </span>
-                     </a>
+            <tal:location condition="authorinfo/location">
+               <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}"
+                  i18n:translate="text_location">
+                  <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="location">
+                      Some Country
+                  </span>
+               </a>
             </tal:location>
         </div>
             <div class="author-homepage">
 		        <tal:url condition="view/author_url|nothing"
 				              i18n:translate="">
 			            Homepage:
-			            <a tal:attributes="href view/author_url"
-			               tal:content="view/author_url"
-				          >
-				        Some URL
+			            <a i18n:name="homepage_url"
+                     tal:attributes="href view/author_url"
+			               tal:content="view/author_url">
+				            Some URL
 			            </a>
-
-			            <br />
+			            <br i18n:name="linebreak" />
 		        </tal:url>
             </div>
 
@@ -241,7 +241,7 @@
                     <tal:postcode condition="view/author_postcode|nothing">
                         <span class="postcode_label" i18n:translate="">Post Code: </span>
                         <span tal:content="view/author_postcode" class="author_postcode" >
-                            Some post code 
+                            Some post code
                         </span>
 
                         <br />
@@ -287,11 +287,11 @@
 
             <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
                                          tal:condition="paypalcode">
-                <p class="paypal-donate"> 
+                <p class="paypal-donate">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="encrypted"
-                           tal:attributes="value paypalcode"> 
+                           tal:attributes="value paypalcode">
                     <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
                     <span class="discreet">
                         If you enjoyed this member's videos, you can donate via PayPal towards their filmmaking, distribution or other media projects. 100% of funds are received by this member directly.
@@ -322,7 +322,7 @@
 
 
 	  <dl class="videos-listing-only" i18n:domain="plumi" >
-	       
+
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a></h2>
 	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2">
@@ -350,7 +350,7 @@
 	<!-- News listing -->
 	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">
 	  <dl class="news-listing" i18n:domain="plumi">
-	       
+
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a></h2>
 	      <a href="#" class="news-rss-syndicate" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS">
@@ -379,7 +379,7 @@
 	<!-- Events listing -->
 	<div class="featured-block" tal:define="events view/events|nothing" tal:condition="events">
 	  <dl class="events-listing" i18n:domain="plumi">
-	       
+
 	    <dt class="featuredHeader">
 	      <h2><a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a></h2>
 	      <a class="events-rss-syndicate" href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS">
@@ -404,7 +404,7 @@
 	</div>
 	<!-- end of Event listing for user -->
 
-                       
+
         </div> <!-- other-published-stuff -->
 
                         <div id="contact-area">
@@ -502,21 +502,21 @@
 
             <!-- listing of content created by this user -->
 
-            <!--        
+            <!--
             <tal:authorContent define="author_content python:here.author_find_content(author);"
                                condition="author_content">
-        
+
                 <h2 i18n:translate="heading_author_content">
                     Recent content created by this user
                 </h2>
-                
+
                 <div metal:define-macro="user_content_listing">
                 <table class="listing" summary="Lists content written by an author grouped by content type" i18n:attributes="summary summary_author_content_list;">
                     <tal:repeat repeat="content_by_type author_content">
                       <tal:grouping define="getTypeInfo nocall:portal_types/getTypeInfo;
                                             content_type_ content_by_type/portal_type;
                                             type_title python: getTypeInfo(content_type_) or None"
-                                    condition="type_title">		
+                                    condition="type_title">
                         <tr>
                             <td tal:content="content_type_" />
                             <th colspan="2"
@@ -547,7 +547,7 @@
                 <a href=""
                    tal:attributes="href string:$here_url/search?Creator=${author}&amp;sort_on=Date&amp;sort_order=reverse"
                    i18n:translate="go_to_search_author_content">
-                    All content created by 
+                    All content created by
                     <span i18n:name="user" tal:omit-tag="" tal:content="python:authorinfo['fullname'] or author"/>&hellip;
                 </a>
 
@@ -555,7 +555,7 @@
             -->
         </div>
     </div> <!-- end simulated tabs -->
-        
+
     </tal:haveAuthor>
 
     </tal:main-macro>

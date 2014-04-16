@@ -24,13 +24,13 @@
             i18n:translate="heading_search_results">Search results</h1>
 
         <strong i18n:translate="batch_x_items_matching_your_criteria">
-            <span i18n:name="number" tal:omit-tag="" tal:content="python:len(userData)">234</span> users prefer 
-            <span tal:content="invalue"/> in <span tal:content="intype"/> 
+            <span i18n:name="number" tal:omit-tag="" tal:content="python:len(userData)">234</span>
+            users prefer <span i18n:name="invalue" tal:content="invalue"/> in <span i18n:name="intype" tal:content="intype"/>
         </strong>
 
         <!-- Navigation -->
         <div metal:use-macro="here/batch_macros/macros/navigation" />
-        
+
         <tal:rep tal:repeat="user batch">
             <div class="card">
                 <a href="#" tal:attributes="href string:author/${user/userid}">
@@ -48,15 +48,15 @@
                     </span>
                 </a>
                 <br />
-           </div>            
+           </div>
         </tal:rep>
-        
+
         <!-- Navigation -->
         <div class="visualClear" id="clear-space-before-navigation"><!-- --></div>
 
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
         <div class="visualClear" id="clear-space-after-navigation"><!-- --></div>
-        
+
   </metal:main>
 </html>
