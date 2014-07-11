@@ -25,7 +25,6 @@
         <tal:desc tal:content="obj/Description" />
         <span class="featured-read-more">
           <a href=""
-	     id="featured-video-more"
 	     tal:attributes="href string:${obj/getURL}/view;
 			     title obj/pretty_title_or_id"
          i18n:translate=""
