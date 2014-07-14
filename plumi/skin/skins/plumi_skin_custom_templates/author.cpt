@@ -21,8 +21,7 @@
     present from main_template.
 </tal:comment>
 <metal:javascript_head fill-slot="javascript_head_slot">
-      <script type="text/javascript"
-              charset="iso-8859-1">
+      <script type="text/javascript">
           jQuery(document).ready( function() {
               jQuery('form').submit(function(){
                 if  (this.name == 'feedback_form'){  //we only want it to work for feedback form
